@@ -6,23 +6,12 @@
 
 def coin_changer(cents)
 	coins = {}
-	if cents >= 25
-		coins[:quarter] = cents / 25
-		cents = cents % 25
-	end
-
-	if cents >= 10
-		coins[:dime] = cents / 10
-		cents = cents % 10
-	end
-
-	if cents >= 5
-		coins[:nickle] = cents / 5
-		cents = cents % 5
-	end 
-	
-	if cents >= 1
-		coins[:penny] = cents
-	end
+	changer = {:quarter => 25, :dime => 10, :nickle => 5, :penny => 1}
+		changer.each do |key, value|
+			if cents >= value
+				coins[key] = cents / value				
+			end	
+			cents = cents % value		
+		end
 	coins
 end
