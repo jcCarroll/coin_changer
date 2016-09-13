@@ -6,8 +6,11 @@
 cents = 1
 def coin_changer(cents)
 	coins = {}
-	if cents == 1
-		coins[:penny] = 1
+	if cents == 5
+		coins[:nickle] = cents / 5
+	elsif 
+		cents .between?(1,4)
+		coins[:penny] = cents
 	end
 	coins
 end
