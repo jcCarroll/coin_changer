@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require_relative "coin_changer.rb"
 
+
 class TestCoinChanger <Minitest::Test
 	
 	def test_0_cents_returns_empty_hash
