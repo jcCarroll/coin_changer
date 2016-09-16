@@ -51,7 +51,9 @@ end
 
 class TestBillChanger <Minitest::Test
 	
-	def test_0_cents_returns_empty_hash
+	def test_0_dollars_returns_empty_hash
 		assert_equal({}, bill_changer(0))
 	end
+
+	def 
 end
