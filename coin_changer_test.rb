@@ -55,11 +55,15 @@ class TestBillChanger <Minitest::Test
 		assert_equal({}, bill_changer(0))
 	end
 
-	def test_1_dollar_returns_1_dollar
-		assert_equal({:dollar => 1}, bill_changer(1))
+	def test_1_dollar_returns_1_dollar_bill
+		assert_equal({:one => 1}, bill_changer(1))
 	end
 
-	def test_2_dollars_returns_2_dollar
-		assert_equal({:dollar => 2}, bill_changer(2))
+	def test_2_dollars_returns_2_1_dollar_bills
+		assert_equal({:one => 2}, bill_changer(2))
+	end
+
+	def test_5_dollars_returns_5_dollar_bill
+		assert_equal({:five => 1}, bill_changer(5))
 	end
 end
