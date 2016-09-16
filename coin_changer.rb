@@ -16,3 +16,8 @@ def coin_changer(cents)
 		end
 	coins
 end
+
+def bill_changer(dollars)
+	bills = {}
+
+end
