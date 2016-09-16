@@ -19,5 +19,8 @@ end
 
 def bill_changer(dollars)
 	bills = {}
-
+	if dollars == 1
+		bills[:dollar] = 1
+	end
+	bills
 end
