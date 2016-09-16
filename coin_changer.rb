@@ -19,6 +19,10 @@ end
 
 def bill_changer(dollars)
 	bills = {}
+	if dollars >= 20
+		bills[:twenty] = dollars / 20
+		dollars = dollars % 20
+	end
 	if dollars >= 10
 		bills[:ten] = dollars / 10
 		dollars = dollars % 10
