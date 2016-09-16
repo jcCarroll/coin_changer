@@ -7,8 +7,8 @@
 
 def coin_changer(cents)
 	coins = {}
-	changer = {:quarter => 25, :dime => 10, :nickle => 5, :penny => 1}
-		changer.each do |key, value|
+	sorter = {:quarter => 25, :dime => 10, :nickle => 5, :penny => 1}
+		sorter.each do |key, value|
 			if cents >= value
 				coins[key] = cents / value				
 			end	
@@ -19,28 +19,12 @@ end
 
 def bill_changer(dollars)
 	bills = {}
-	if dollars >= 100
-		bills[:hundred] = dollars / 100
-		dollars = dollars % 100
-	end
-	if dollars >= 50
-		bills[:fifty] = dollars / 50
-		dollars = dollars % 50
-	end
-	if dollars >= 20
-		bills[:twenty] = dollars / 20
-		dollars = dollars % 20
-	end
-	if dollars >= 10
-		bills[:ten] = dollars / 10
-		dollars = dollars % 10
-	end
-	if dollars >= 5
-		bills[:five] = dollars / 5
-		dollars = dollars % 5
-	end
-	if dollars >= 1
-		bills[:one] = dollars
-	end
+	changer = {:hundred => 100, :fifty => 50, :twenty => 20, :ten => 10, :five => 5, :one => 1}
+	changer.each do |key, value|
+			if dollars >= value
+				bills[key] = dollars / value
+			end	
+			dollars = dollars % value		
+		end
 	bills
 end
