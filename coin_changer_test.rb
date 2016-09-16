@@ -70,4 +70,8 @@ class TestBillChanger <Minitest::Test
 	def test_6_dollars_returns_1_5_dollar_bill_and_1_one_dollar_bill
 		assert_equal({:five => 1}, bill_changer(5))
 	end
+
+	def test_10_dollars_returns_10_dollar_bill
+		assert_equal({:ten => 1}, bill_changer(10))
+	end
 end
