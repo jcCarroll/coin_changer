@@ -31,4 +31,12 @@ end
 
 def money_changer(cash)
 	monies = {}
+	value = cash.to_s.split(".")
+	if bill_changer(value[0])
+		b = bills
 	end
+	if coin_changer(value[1])
+		c = coins
+	end
+	monies = b.merge(c)
+end

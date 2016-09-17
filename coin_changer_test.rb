@@ -86,7 +86,11 @@ end
 
 class TestBillsandCentsChanger <Minitest::Test
 	
-	def test_0_dollars_returns_empty_hash
+	def test_0_returns_empty_hash
 		assert_equal({}, money_changer(0))
+	end
+
+	def test_0_returns_empty_hash
+		assert_equal({:one => 1, :quater => 1}, money_changer(1.25))
 	end
 end
