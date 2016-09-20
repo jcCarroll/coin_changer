@@ -4,28 +4,39 @@
 
 # eg. if you have 11 cents you should return {:dime => 1, :penny => 1}; if you have 31 cents you should return {:quarter => 1, :nickle => 1, :penny => 1}.
 
-def coin_changer(cents)
-	coins = {}
-	if cents >= 25
-		coins[:quarter] = cents / 25
-		cents = cents % 25
-	end
 
-	if cents >= 10
-		coins[:dime] = cents / 10
-		cents = cents % 10
-	end
+###### jon ######
 
-	if cents >= 5
-		coins[:nickle] = cents / 5
-		cents = cents % 5
-	end 
+# if cents >= 10
+# 	num_coins = cents / 10
+# 	coins[:dime] = num_coins
+# 	cents = cents - (num_coins * 10)
+# end
+
+############
+
+# def coin_changer(cents)
+# 	coins = {}
+# 	if cents >= 25
+# 		coins[:quarter] = cents / 25
+# 		cents = cents % 25
+# 	end
+
+# 	if cents >= 10
+# 		coins[:dime] = cents / 10
+# 		cents = cents % 10
+# 	end
+
+# 	if cents >= 5
+# 		coins[:nickle] = cents / 5
+# 		cents = cents % 5
+# 	end 
 	
-	if cents >= 1
-		coins[:penny] = cents
-	end
-	coins
-end
+# 	if cents >= 1
+# 		coins[:penny] = cents
+# 	end
+# 	coins
+# end
 
 def coin_changer(cents)
 	coins = {}
