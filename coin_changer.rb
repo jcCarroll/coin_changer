@@ -31,14 +31,13 @@ end
 
 def money_changer(cash)
 	monies = {}
-	cash = 3.25
+	
 	cash.to_s.split(".")
 		
 	
 	
 end
 
-puts cash
 
 
 
