@@ -22,17 +22,13 @@ post '/help' do
 		redirect '/changer?user_name' + name
 	else
 		ans == "No"
-		redirect '/move_on'
+		erb :get_move
 	end
 end
 
 get '/changer' do
 	name = params[:user_name]
 	erb :get_change, :locals => {:name => name}
-end
-
-get '/move_on' do
-	erb :get_move
 end
 
 get '/chance' do
@@ -54,8 +50,15 @@ get '/fine' do
 	erb :get_fine
 end
 
+post '/fine' do
+	if value == "OK"
+	redirect '/'
+	end
+end
+
 post '/changer' do
 	change = params[:cents]
 	coins = coin_changer(change.to_i)
-	"That makes #{coins}."
+	erb :get_again, :locals => {:coins => coins}
 end
+
