@@ -35,6 +35,25 @@ get '/move_on' do
 	erb :get_move
 end
 
+get '/chance' do
+	erb :get_chance
+end
+
+post '/chance' do
+	name = params[:user_name]
+	ans = params[:ques]
+	if 	ans == "Yes"
+		redirect '/changer?user_name' + name
+	else
+		ans == "No"
+		redirect '/fine'
+	end
+end
+
+get '/fine' do
+	erb :get_fine
+end
+
 post '/changer' do
 	change = params[:cents]
 	coins = coin_changer(change.to_i)
