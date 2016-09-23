@@ -19,7 +19,7 @@ post '/help' do
 	name = params[:user_name]
 	ans = params[:ques]
 	if 	ans == "Yes"
-		redirect '/changer?user_name' + name
+		erb :get_change, :locals => {:name => name}
 	else
 		ans == "No"
 		erb :get_move
@@ -27,8 +27,13 @@ post '/help' do
 end
 
 get '/changer' do
-	name = params[:user_name]
-	erb :get_change, :locals => {:name => name}
+	erb :get_change
+end
+
+post '/changer' do
+	change = params[:cents]
+	coins = coin_changer(change.to_i)
+	erb :get_again, :locals => {:coins => coins}
 end
 
 get '/chance' do
@@ -39,7 +44,7 @@ post '/chance' do
 	name = params[:user_name]
 	ans = params[:ques]
 	if 	ans == "Yes"
-		redirect '/changer?user_name' + name
+		redirect '/changer?user_name'
 	else
 		ans == "No"
 		redirect '/fine'
@@ -49,16 +54,3 @@ end
 get '/fine' do
 	erb :get_fine
 end
-
-post '/fine' do
-	if value == "OK"
-	redirect '/'
-	end
-end
-
-post '/changer' do
-	change = params[:cents]
-	coins = coin_changer(change.to_i)
-	erb :get_again, :locals => {:coins => coins}
-end
-
