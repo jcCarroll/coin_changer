@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'coin_changer'
 
 get '/' do 
 	erb :get_name
@@ -17,7 +18,7 @@ end
 post '/help' do
 	name = params[:user_name]
 	if value = "Yes"
-		redirect '/changer?name'
+		redirect '/changer?user_name' + name
 	else
 		value = "No"
 		redirect '/move_on'
@@ -26,10 +27,11 @@ end
 
 get '/changer' do
 	name = params[:user_name]
+	change = params[:cents]
+	coins = coin_changer(change)
 	erb :get_change, :locals => {:name => name}
 end
 
-# get '/' do
-# 	name = params[:user_name]
-# 	erb :get_change, :locals => {:name => name}
-# end
+get '/move_on' do
+	erb :get_move
+end
