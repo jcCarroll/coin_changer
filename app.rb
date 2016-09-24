@@ -22,35 +22,29 @@ post '/help' do
 		erb :get_change, :locals => {:name => name}
 	else
 		ans == "No"
-		erb :get_move
+		erb :get_move, :locals => {:name => name}
 	end
 end
 
-get '/changer' do
-	erb :get_change
-end
-
 post '/changer' do
+	name = params[:user_name]
 	change = params[:cents]
 	coins = coin_changer(change.to_i)
-	erb :get_again, :locals => {:coins => coins}
+	erb :get_again, :locals => {:coins => coins, :name => name}
 end
 
 get '/chance' do
-	erb :get_chance
+	name = params[:user_name]
+	erb :get_chance, :locals => {:name => name}
 end
 
 post '/chance' do
 	name = params[:user_name]
 	ans = params[:ques]
 	if 	ans == "Yes"
-		redirect '/changer?user_name'
+		erb :get_change, :locals => {:name => name}
 	else
 		ans == "No"
-		redirect '/fine'
+		erb :get_fine, :locals => {:name => name}
 	end
-end
-
-get '/fine' do
-	erb :get_fine
 end
