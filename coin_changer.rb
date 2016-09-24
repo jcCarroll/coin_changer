@@ -50,26 +50,26 @@ def coin_changer(cents)
 	coins
 end
 
-# def bill_changer(dollars)
-# 	bills = {}
-# 	changer = {:hundred => 100, :fifty => 50, :twenty => 20, :ten => 10, :five => 5, :one => 1}
-# 		changer.each do |key, value|
-# 			if dollars >= value
-# 				bills[key] = dollars / value
-# 			end
-# 			dollars = dollars % value
-# 		end
-# 	bills
-# end
+def bill_changer(dollars)
+	bills = {}
+	changer = {:hundred => 100, :fifty => 50, :twenty => 20, :ten => 10, :five => 5, :one => 1}
+		changer.each do |key, value|
+			if dollars >= value
+				bills[key] = dollars / value
+			end
+			dollars = dollars % value
+		end
+	bills
+end
 
-# def money_changer(cash)
-# 	monies = {}
+def money_changer(cash)
+	monies = {}
 	
-# 	cash.to_s.split(".")
+	cash.to_s.split(".")
 		
 	
 	
-# end
+end
 
 
 
